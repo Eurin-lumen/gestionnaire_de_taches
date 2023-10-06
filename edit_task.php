@@ -1,5 +1,5 @@
 <?php
-include('db.php'); // Inclure le fichier de connexion à la base de données
+include('db/config.php'); // Inclure le fichier de connexion à la base de données
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les données du formulaire
@@ -7,19 +7,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $task_name = $_POST['task_name'];
     $task_description = $_POST['task_description'];
 
+    // Requête SQL pour récupérer la tâche à modifier (pour afficher les valeurs actuelles)
+    $select_sql = "SELECT * FROM tasks WHERE id = :task_id";
+    $stmt_select = $pdo->prepare($select_sql);
+    $stmt_select->bindParam(':task_id', $task_id, PDO::PARAM_INT);
+    $stmt_select->execute();
+    $task = $stmt_select->fetch(PDO::FETCH_ASSOC);
+
     // Requête SQL pour mettre à jour la tâche
-    $sql = "UPDATE tasks SET task_name = :task_name, task_description = :task_description WHERE id = :task_id";
+    $update_sql = "UPDATE tasks SET task_name = :task_name, task_description = :task_description WHERE id = :task_id";
+    $stmt_update = $pdo->prepare($update_sql);
+    $stmt_update->bindParam(':task_id', $task_id, PDO::PARAM_INT);
+    $stmt_update->bindParam(':task_name', $task_name, PDO::PARAM_STR);
+    $stmt_update->bindParam(':task_description', $task_description, PDO::PARAM_STR);
 
-    // Préparation de la requête
-    $stmt = $pdo->prepare($sql);
-
-    // Liaison des paramètres
-    $stmt->bindParam(':task_id', $task_id, PDO::PARAM_INT);
-    $stmt->bindParam(':task_name', $task_name, PDO::PARAM_STR);
-    $stmt->bindParam(':task_description', $task_description, PDO::PARAM_STR);
-
-    // Exécution de la requête
-    if ($stmt->execute()) {
+    // Exécution de la mise à jour de la tâche
+    if ($stmt_update->execute()) {
         // Rediriger vers la page d'accueil après la modification de la tâche
         header('Location: index.php');
     } else {
@@ -27,4 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<!-- Vous pouvez ajouter le formulaire de modification de tâches ici -->

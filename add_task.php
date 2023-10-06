@@ -1,5 +1,5 @@
 <?php
-include('db.php'); // Inclure le fichier de connexion à la base de données
+include('db/config.php'); // Inclure le fichier de connexion à la base de données
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les données du formulaire

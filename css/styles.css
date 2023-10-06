@@ -1,0 +1,154 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.task-form {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.task-form h2 {
+    color: #333;
+}
+
+.task-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.task-form input[type="text"],
+.task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.task-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Ajout de marge au-dessus du bouton */
+}
+
+.task-list h2 {
+    color: #333;
+}
+
+.task-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-list th, .task-list td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.task-list th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.task-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.task-list .task-name {
+    font-weight: bold;
+}
+
+.task-list .task-description {
+    margin-top: 10px;
+}
+
+.task-list .edit-button,
+.delete-form .delete-button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px; /* Plus d'espace entre les boutons */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-list .edit-button {
+    background-color: #007bff;
+}
+
+.delete-form {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+
+/* styles.css */
+/* ... Autres styles ... */
+
+.task-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-list th, .task-list td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.task-list th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.task-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.task-list tr:hover {
+    background-color: #dcdcdc; /* Couleur de fond lorsque la ligne est survolée */
+}
+
+/* Style pour les boutons d'action dans chaque ligne */
+.task-list .edit-button,
+.delete-form .delete-button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-list .edit-button {
+    background-color: #007bff;
+}
